@@ -1,0 +1,97 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion target_sdk
+    buildToolsVersion build_tools
+
+    defaultConfig {
+        applicationId "com.bugull.android.ext"
+        minSdkVersion min_sdk
+        targetSdkVersion target_sdk
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        flavorDimensions "ext"
+    }
+
+    androidExtensions {
+        experimental = true
+    }
+//    kotlinOptions {
+//        jvmTarget  = JavaVersion.VERSION_1_8
+//    }
+
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
+    lintOptions {
+        checkReleaseBuilds false
+        // Or, if you prefer, you can continue to check for errors in release builds,
+        // but continue the build even when errors are found:
+        abortOnError false
+    }
+
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+//        kotlinOptions{
+//            freeCompilerArgs+= ["-XXLanguage:+NewInference", "-XXLanguage:+SamConversionForKotlinFunctions"]
+//        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation "androidx.core:core-ktx:$core_ktx"
+    implementation "androidx.appcompat:appcompat:$appcompat"
+    implementation "androidx.constraintlayout:constraintlayout:$constraintlayout"
+    implementation "com.google.android.material:material:$material"
+    implementation "androidx.annotation:annotation:$annotation"
+    testImplementation "junit:junit:$junit"
+    androidTestImplementation "androidx.test.ext:junit:$test_ext"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_core"
+
+    implementation project(path: ':http-example')
+    implementation project(path: ':http-base')
+    implementation project(path: ':extension-android')
+    implementation project(path: ':selector-photo')
+    implementation project(path: ':flowlayout')
+    implementation project(path: ':skin')
+
+    implementation "androidx.multidex:multidex:$multidex"
+
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_extensions"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_extensions"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_extensions"
+
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines"
+
+    implementation "com.squareup.retrofit2:retrofit:$retrofit2"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit2"
+    implementation "com.squareup.okhttp3:logging-interceptor:$httplog"
+
+    implementation "com.gyf.immersionbar:immersionbar:$immersionbar"
+
+    implementation "com.github.LuckSiege.PictureSelector:picture_library:$picture_selector"
+    implementation "com.github.bumptech.glide:glide:$glide"
+    testImplementation "org.jetbrains.kotlin:kotlin-reflect:1.3.72"
+
+
+}

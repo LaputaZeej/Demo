@@ -1,0 +1,9 @@
+include ':skin-demo'
+include ':skin'
+include ':flowlayout'
+include ':selector-photo'
+include ':extension-android'
+include ':http-example'
+include ':http-base'
+include ':app'
+rootProject.name = "extension"
