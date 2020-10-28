@@ -21,6 +21,7 @@ import com.bugull.android.selector.photo.SelectorPhotoFragment
 import com.bugull.android.selector.photo.SelectorPhotoFragmentFactory
 import com.bugull.android.selector.photo.SelectorPhotoViewModel
 import com.gyf.barlibrary.ImmersionBar
+import com.laputa.linked.HomeActivity
 import com.laputa.skin.SkinManager
 import com.luck.picture.lib.entity.LocalMedia
 import kotlinx.android.synthetic.main.activity_main.*
@@ -43,6 +44,7 @@ class MainActivity(
         testSkin()
         initViewModel()
         initViewS()
+
 
     }
 
@@ -71,7 +73,6 @@ class MainActivity(
                     toast(it?.toString() ?: "没有用户信息")
                 })
 
-                Runnable { }
 
 
             }
@@ -111,6 +112,13 @@ class MainActivity(
         btn_01.setOnClickListener {
             //            mainViewModel.change("hehehehe")
             textStyle(222)
+            startActivity(
+                Intent(
+                    this@MainActivity,
+                    HomeActivity::class.java
+                ).putExtras(bundleOf("name" to "zeej"))
+            )
+
         }
         btn_02.setOnClickListener {
             //            mainViewModel.change2("hahahaha")
