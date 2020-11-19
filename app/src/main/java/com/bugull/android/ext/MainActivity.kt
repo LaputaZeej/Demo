@@ -3,6 +3,7 @@ package com.bugull.android.ext
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import android.os.Process
 import android.text.Spannable
 import android.text.SpannableString
 import android.text.style.ForegroundColorSpan
@@ -12,6 +13,9 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import com.bugull.android.ext.app.MyApp.Companion.SKIN
 import com.bugull.android.ext.data.UserData
+import com.bugull.android.ext.recycler.SlideActivity
+import com.bugull.android.ext.recycler.SlideAdapter
+import com.bugull.android.ext.recycler.SlideCard
 import com.bugull.android.extension.base.BaseActivity
 import com.bugull.android.extension.base.viewModels
 import com.bugull.android.extension.base.viewModelsFactory
@@ -21,8 +25,12 @@ import com.bugull.android.selector.photo.SelectorPhotoFragment
 import com.bugull.android.selector.photo.SelectorPhotoFragmentFactory
 import com.bugull.android.selector.photo.SelectorPhotoViewModel
 import com.gyf.barlibrary.ImmersionBar
+import com.laputa.base.autoservice.ServiceLoaderHelper
+import com.laputa.common.autoservice.WebViewService
 import com.laputa.linked.HomeActivity
 import com.laputa.skin.SkinManager
+import com.laputa.webview.util.assetsUrl
+import com.laputa.webview.util.i
 import com.luck.picture.lib.entity.LocalMedia
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.MainScope
@@ -72,7 +80,6 @@ class MainActivity(
                 mineLiveData.observe(this@MainActivity, Observer {
                     toast(it?.toString() ?: "没有用户信息")
                 })
-
 
 
             }
@@ -127,6 +134,26 @@ class MainActivity(
         btn_03.setOnClickListener {
             //mainViewModel.change("xixixixix")
             textStyle(12)
+        }
+
+        i("MainActivity -> "+ Process.myPid())
+
+        test_webview_demo.setOnClickListener {
+            ServiceLoaderHelper.load(WebViewService::class.java)
+                .startWebVieActivity(this, assetsUrl("demo.html"))
+        }
+        test_webView.setOnClickListener {
+            ServiceLoaderHelper.load(WebViewService::class.java)
+                .startWebVieActivity(this, "https://www.baidu.com")
+        }
+
+        case_slide_card.setOnClickListener {
+            startActivity(
+                Intent(
+                    this@MainActivity,
+                    SlideActivity::class.java
+                ).putExtras(bundleOf("name" to "zeej"))
+            )
         }
     }
 
@@ -213,6 +240,7 @@ class MainActivity(
 private suspend fun test(): String = suspendCancellableCoroutine<String> {
 
 }
+
 
 
 

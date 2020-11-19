@@ -6,6 +6,7 @@ import android.util.AttributeSet
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
+import android.webkit.WebView
 import java.lang.Exception
 import java.lang.reflect.Constructor
 import java.util.*
@@ -40,7 +41,12 @@ internal class SkinFactory(
         Log.e(TAG, "name = $name")
         val view = createSDKView(name, context, attrs) ?: createView(name, context, attrs)
         ?: throw Exception("can't create view")
-        skinAttribute.lookup(view, attrs) // 加载属性
+        if (view is  WebView){
+
+        }else{
+            skinAttribute.lookup(view, attrs) // 加载属性
+        }
+
         return view
     }
 

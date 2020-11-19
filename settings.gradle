@@ -1,3 +1,7 @@
+include ':lib-login'
+include ':common'
+include ':base'
+include ':webview'
 include ':second-linked'
 include ':skin-demo'
 include ':skin'

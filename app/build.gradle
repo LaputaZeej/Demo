@@ -74,6 +74,8 @@ dependencies {
     implementation project(path: ':flowlayout')
     implementation project(path: ':skin')
     implementation project(path: ':second-linked')
+    implementation project(path: ':webview')
+    implementation project(path: ':lib-login')
 
     implementation "androidx.multidex:multidex:$multidex"
 
@@ -95,6 +97,8 @@ dependencies {
     testImplementation "org.jetbrains.kotlin:kotlin-reflect:1.3.72"
 
     //implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
+    kapt rootProject.googleAutoServiceDependency
+    implementation rootProject.googleAutoServiceDependency
 
 
 }

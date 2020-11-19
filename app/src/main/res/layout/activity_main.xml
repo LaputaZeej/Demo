@@ -48,9 +48,10 @@
         android:layout_marginTop="100dp"
         android:background="@color/skinBackground"
         >
-        <TextView
+        <Button
+            android:id="@+id/case_slide_card"
             android:textSize="16sp"
-            android:text="哈哈1"
+            android:text="自定义卡片"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
@@ -73,12 +74,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <TextView
+            android:id="@+id/test_webview_demo"
             android:textSize="12sp"
-            android:text="哈哈哈哈哈哈哈哈6"
+            android:text="测试WebView demo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <TextView
-            android:text="哈哈哈7"
+            android:id="@+id/test_webView"
+            android:text="测试WebView"
             android:textSize="22sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>

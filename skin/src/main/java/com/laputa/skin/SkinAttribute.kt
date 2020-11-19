@@ -4,6 +4,7 @@ import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.util.Log
 import android.view.View
+import android.webkit.WebView
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.view.ViewCompat
@@ -41,9 +42,10 @@ internal class SkinAttribute {
                         Log.w(TAG, "attributeValue value is begin with # ： $attributeName = $attributeValue")
                     }
                     attributeValue.startsWith("?") -> {
-                        val attrId = attributeValue.substring(1).toInt()
+                        // ?  android:background="?selectableItemBackground" 有问题
+           /*             val attrId = attributeValue.substring(1).toInt()
                         val resId = SkinSDKUtils.getResId(view.context, IntArray(attrId))[0]
-                        skinPairs.add(SkinPair(attributeName, resId))
+                        skinPairs.add(SkinPair(attributeName, resId))*/
                     }
                     attributeValue.startsWith("@") -> {
                         val resId = attributeValue.substring(1).toInt()

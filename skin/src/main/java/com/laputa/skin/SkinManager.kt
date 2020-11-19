@@ -39,6 +39,7 @@ object SkinManager : Observable() {
                 addAssetPathMethod.invoke(assetManager, skinPath)
                 val skinResources =
                     Resources(assetManager, appResource.displayMetrics, appResource.configuration)
+                // todo 这里的packageArchiveInfo为null
                 val packageArchiveInfo = mContext.packageManager.getPackageArchiveInfo(
                     skinPath,
                     PackageManager.GET_ACTIVITIES

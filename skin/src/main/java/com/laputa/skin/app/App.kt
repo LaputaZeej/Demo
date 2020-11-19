@@ -6,6 +6,6 @@ import com.laputa.skin.SkinManager
 class App : Application() {
     override fun onCreate() {
         super.onCreate()
-        SkinManager.init(this)
+//        SkinManager.init(this)
     }
 }

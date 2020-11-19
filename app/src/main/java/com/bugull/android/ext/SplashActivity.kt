@@ -2,8 +2,10 @@ package com.bugull.android.ext
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Process
 import com.bugull.android.extension.toast
 import com.laputa.skin.SkinManager
+import com.laputa.webview.util.i
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.MainScope
 
@@ -15,9 +17,13 @@ class SplashActivity : AppCompatActivity(),CoroutineScope by MainScope(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.dialog_loading_default)
+        val stringExtra = intent.getStringExtra("haha")
         var name: String? by BundleProperty(intent, "name")
         name = "hello"
         toast(name)
+        i("SplashActivity = ${Process.myPid()}")
+        i("haha = $stringExtra")
+
 
         SkinManager.loadSkin("/data/data/com.bugull.android.ext/skin/skin-demo-debug.apk")
     }

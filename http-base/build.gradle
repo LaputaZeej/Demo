@@ -38,5 +38,6 @@ dependencies {
     implementation "com.squareup.retrofit2:retrofit:$retrofit2"
     implementation "com.squareup.retrofit2:converter-gson:$retrofit2"
     implementation "com.squareup.okhttp3:logging-interceptor:$httplog"
+    api 'com.google.code.gson:gson:2.8.2'
 
 }
