@@ -9,7 +9,7 @@ import com.laputa.webview.util.i
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.MainScope
 
-class SplashActivity : AppCompatActivity(),CoroutineScope by MainScope(){
+class SplashActivity : AppCompatActivity(), CoroutineScope by MainScope() {
 
 
     val name1: String? by lazy { "" }
@@ -26,6 +26,11 @@ class SplashActivity : AppCompatActivity(),CoroutineScope by MainScope(){
 
 
         SkinManager.loadSkin("/data/data/com.bugull.android.ext/skin/skin-demo-debug.apk")
+
+        val a: Int? = null
+        val b = a?.toFloat()
+        val c = 1f.div (b ?: 0f)
+
     }
 
 }

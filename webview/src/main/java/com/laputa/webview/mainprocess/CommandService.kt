@@ -26,7 +26,7 @@ class CommandService : Service() {
     }
 
     private object ProcessCommandsManager : IWebViewProcessToMainProcessInterface.Stub() {
-        // 所有的命令
+        // 所有的命令S
         private val mCommands: MutableMap<String, Command> = mutableMapOf()
 
         private val handle: Handler = Handler(Looper.getMainLooper())
