@@ -11,7 +11,8 @@ public class TestAAA {
         AA.BBB b2 = aa.new BBB();
         AA.BBB b1 = aa.new AA.BBB(){};
 
-        // 测试同步两个仓库 
+        // 测试同步两个仓库
+        // xxx再次测试
 
     }
 
